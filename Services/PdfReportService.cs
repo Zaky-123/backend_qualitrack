@@ -70,7 +70,7 @@ public class PdfReportService(IStorageService storage, IWebHostEnvironment env, 
         try
         {
             // Local - baca dari disk
-            var localPath = Path.Combine(env.ContentRootPath, "Uploads", Path.GetFileName(storagePath));
+            var localPath = Path.Combine(env.ContentRootPath, "uploads", Path.GetFileName(storagePath));
             if(File.Exists(localPath))
                 return await File.ReadAllBytesAsync(localPath);
 
@@ -114,7 +114,7 @@ public class PdfReportService(IStorageService storage, IWebHostEnvironment env, 
 
                 InfoRow("Audit ID", $"{plan.Id.ToString()[..8].ToUpper()}");
                 InfoRow("Department", schedule.Department);
-                InfoRow("Auditor", schedule.AuditorName);
+                InfoRow("AuditorInternal", schedule.AuditorName);
                 InfoRow("Audit Date", schedule.ScheduledDate.ToString("dd MMM yyyy"));
                 InfoRow("Standard", plan.Standard);
                 InfoRow("Audit Status", session.Status.ToString());
