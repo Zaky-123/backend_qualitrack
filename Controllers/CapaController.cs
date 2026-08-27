@@ -109,7 +109,9 @@ public class CapaController(AppDbContext db) : ControllerBase
             .Include(c => c.Actions)
             .Include(c => c.Pic)
             .FirstOrDefaultAsync(c => c.Id == capa.Id);
-            
+
+        if (createdCapa is null)
+            return StatusCode(500, new { message = "Gagal memuat ulang CAPA setelah dibuat" });
         return CreatedAtAction(nameof(GetById), new { id = capa.Id }, MapToResponseDto(createdCapa));
     }
 
