@@ -23,6 +23,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<EvidenceFile> EvidenceFiles => Set<EvidenceFile>();
     public DbSet<User> Users => Set<User>();
     public DbSet<AuditSummary> AuditSummaries => Set<AuditSummary>();
+    public DbSet<SpcAnalysis> SpcAnalyses => Set<SpcAnalysis>();
 
     protected override void OnModelCreating(ModelBuilder mb)
     {
