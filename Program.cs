@@ -46,6 +46,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<QualiTrack.Services.IEmailService, QualiTrack.Services.EmailService>();
+builder.Services.AddScoped<IQualityScoreService, QualityScoreService>();
 builder.Services.AddScoped<IKpiService, KpiService>();
 builder.Services.AddScoped<IRecentActivityService, RecentActivityService>();
 
